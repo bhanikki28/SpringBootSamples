@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+
+  mongo_db:
+    image: "mongo:latest"
+    restart: always
+    container_name: "mongo_db"
+    ports:
+      - 27017:27017
+  directory-service:
+    image: directory-service:latest
+    restart: always
+    ports:
+      - 8080:8080
+    links:
+      - mongo_db
