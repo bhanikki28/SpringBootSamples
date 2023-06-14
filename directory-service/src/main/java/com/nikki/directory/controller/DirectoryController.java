@@ -44,6 +44,12 @@ public class DirectoryController {
         return directoryService.getContactById(id);
     }
 
+    @PutMapping("/contacts")
+    @ApiOperation(value = "To activate particular contact by passing the contact ", response = Contact.class,
+            code = 200)
+    public Mono<Contact> updateContact(@RequestBody Contact contact) {
+        return directoryService.updateContact(contact);
+    }
 
 
 
