@@ -16,6 +16,6 @@ public class Contact {
     @Id
     private String id;
     private String name;
-    private String[] phoneNumbers;
+    private String phoneNumber;
     private Boolean active;
 }
