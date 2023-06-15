@@ -15,6 +15,7 @@ public class DirectoryRepositoryTest {
 
     @Autowired
     private DirectoryRepository directoryRepository;
+
     /*
     @Test
     public void shouldSaveContact() {
@@ -26,7 +27,7 @@ public class DirectoryRepositoryTest {
                 .create(setup)
                 .expectNextCount(1)
                 .verifyComplete();
-    }
-    */
+    }*/
+
 
 }
