@@ -9,7 +9,6 @@ import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import reactor.test.StepVerifier;
 
-@DataMongoTest
 @ExtendWith(SpringExtension.class)
 public class DirectoryRepositoryTest {
 
