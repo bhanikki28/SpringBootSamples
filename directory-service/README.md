@@ -41,4 +41,16 @@
 
     gradle clean build
     Coverage Reports can be found inside buiild/reports/jacaco folder
+
+
+### Tech Stack
+
+    * Java 17
+    * Spring Boot 3
+    * MongoDB
+    * Reactive Repository
+    * JUnit
+    * Jacaco
+    * Docker
+
         
