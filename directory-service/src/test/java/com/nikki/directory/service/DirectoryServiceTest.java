@@ -45,9 +45,9 @@ public class DirectoryServiceTest {
     @Test
     public void shouldCreateContact(){
         Contact contact = Contact.builder().id("1")
-                .name("Test")
+                .name("Test User")
                 .phoneNumber("9789999373")
-                .active(Boolean.TRUE)
+                .active(Boolean.FALSE)
                 .build();
         when(directoryRepository.save(contact)).thenReturn(Mono.just(contact));
         Mono<Contact> contactMono = directoryService.createContact(contact);
@@ -59,45 +59,22 @@ public class DirectoryServiceTest {
                 .verifyComplete();
     }
 
-
-    /*
     @Test
-    public void shouldGetAllContacts(){
-        List<Contact> contactList = Arrays.asList(  Contact.builder().id("1")
-                .name("Test")
-                .phoneNumber("9789999373")
-                .active(Boolean.TRUE)
-                .build(),
-                Contact.builder().id("1")
-                .name("Test")
-                .phoneNumber("9789999374")
-                .active(Boolean.TRUE)
-                .build());
-
+    public void shouldUpdateContact(){
         Contact contact = Contact.builder().id("1")
-                .name("Test")
+                .name("Test User")
                 .phoneNumber("9789999373")
                 .active(Boolean.TRUE)
                 .build();
-
-        Flux<Contact> contactFlux = Flux.just(Contact.builder().id("1")
-                        .name("TestUser1")
-                        .phoneNumber("9789999373")
-                        .active(Boolean.TRUE)
-                        .build(),
-                Contact.builder().id("2")
-                        .name("TestUser2")
-                        .phoneNumber("9789999374")
-                        .active(Boolean.TRUE)
-                        .build());
-
-        when(directoryRepository.findAll()).thenReturn(contactFlux);
-        Flux<Contact> contactFlux2 = directoryService.getAllContacts();
+        when(directoryRepository.findById("1")).thenReturn(Mono.just(contact));
+        when(directoryRepository.save(contact)).thenReturn(Mono.just(contact));
+        Mono<Contact> contactMono = directoryService.updateContact(contact);
         StepVerifier
-                .create(contactFlux2)
+                .create(contactMono)
                 .consumeNextWith(contact1 -> {
                     Assertions.assertEquals(contact1.getPhoneNumber(), "9789999373");
                 })
                 .verifyComplete();
-    }*/
+    }
+
 }

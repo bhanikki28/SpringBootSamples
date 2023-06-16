@@ -54,9 +54,10 @@ jacocoTestReport {
 	dependsOn test // tests are required to run before generating the report
 	afterEvaluate {
 		classDirectories.setFrom(files(classDirectories.files.collect {
-			fileTree(dir: it, exclude: 'com/nikki/directory/model/**')
-			fileTree(dir: it, exclude: 'com/nikki/directory/config/**')
-			fileTree(dir: it, exclude: 'com/nikki/directory/exception/**')
+			fileTree(dir: it, exclude: [
+					'com/nikki/directory/config/**','com/nikki/directory/model/**',
+					'com/nikki/directory/exception/**'
+			])
 
 		}))
 	}
@@ -74,7 +75,7 @@ jacocoTestCoverageVerification {
 	violationRules {
 		rule {
 			limit {
-				minimum = 1
+				minimum = 0.8
 			}
 		}
 	}

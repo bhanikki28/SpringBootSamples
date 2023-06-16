@@ -51,6 +51,27 @@ public class DirectoryControllerTest {
 	}
 
 	@Test
+	public void updateContact() {
+
+		Contact contact = Contact.builder().id("1")
+				.name("Test")
+				.phoneNumber("123")
+				.active(Boolean.TRUE).build();
+
+		Mockito.when(directoryRepository.findById("1")).thenReturn(Mono.just(contact));
+
+		Mockito.when(directoryRepository.save(contact)).thenReturn(Mono.just(contact));
+
+		webTestClient.put()
+				.uri("/api/v1/contacts")
+				.contentType(MediaType.APPLICATION_JSON)
+				.body(Mono.just(contact), Contact.class)
+				.exchange()
+				.expectStatus()
+				.is2xxSuccessful();
+	}
+
+	@Test
 	public void getContactById() {
 
 		Contact contact = Contact.builder().id("1")
