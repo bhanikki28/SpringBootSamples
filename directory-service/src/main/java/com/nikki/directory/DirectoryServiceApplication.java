@@ -27,6 +27,7 @@ public class DirectoryServiceApplication {
 		SpringApplication.run(DirectoryServiceApplication.class, args);
 	}
 
+	/*
 	@Bean
 	CommandLineRunner addContacts(DirectoryRepository directoryRepository) {
 		return args -> {
@@ -38,7 +39,7 @@ public class DirectoryServiceApplication {
 								.forEach(contact -> directoryRepository.save(contact).subscribe(contact1 -> System.out.println(contact)));
 					});
 		};
-	}
+	}*/
 
 	@Bean
 	public Docket docket() {
