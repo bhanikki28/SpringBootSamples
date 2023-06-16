@@ -55,6 +55,9 @@ jacocoTestReport {
 	afterEvaluate {
 		classDirectories.setFrom(files(classDirectories.files.collect {
 			fileTree(dir: it, exclude: 'com/nikki/directory/model/**')
+			fileTree(dir: it, exclude: 'com/nikki/directory/config/**')
+			fileTree(dir: it, exclude: 'com/nikki/directory/exception/**')
+
 		}))
 	}
 }
